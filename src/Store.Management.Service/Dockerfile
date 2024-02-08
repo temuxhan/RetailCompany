@@ -11,17 +11,17 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0-nanoserver-1809 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["RetailCompany.csproj", "."]
-RUN dotnet restore "./././RetailCompany.csproj"
+COPY ["src/Store.Management.Service/Store.Management.Service.csproj", "src/Store.Management.Service/"]
+RUN dotnet restore "./src/Store.Management.Service/./Store.Management.Service.csproj"
 COPY . .
-WORKDIR "/src/."
-RUN dotnet build "./RetailCompany.csproj" -c %BUILD_CONFIGURATION% -o /app/build
+WORKDIR "/src/src/Store.Management.Service"
+RUN dotnet build "./Store.Management.Service.csproj" -c %BUILD_CONFIGURATION% -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./RetailCompany.csproj" -c %BUILD_CONFIGURATION% -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Store.Management.Service.csproj" -c %BUILD_CONFIGURATION% -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "RetailCompany.dll"]
+ENTRYPOINT ["dotnet", "Store.Management.Service.dll"]
