@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Management.Service.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events", "src\Events\Events.csproj", "{3DED3CDF-4119-4002-AA48-6B9BA7A35BCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagaStateMachine", "SagaStateMachine\SagaStateMachine.csproj", "{1FB08DAC-3C3E-4E5C-97F0-DEE6037121BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagaStateMachine", "src\SagaStateMachine\SagaStateMachine.csproj", "{1FB08DAC-3C3E-4E5C-97F0-DEE6037121BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBrokers", "src\MessageBrokers\MessageBrokers.csproj", "{86F82A4B-1264-4706-AC91-42AFF2CDD678}"
 EndProject
