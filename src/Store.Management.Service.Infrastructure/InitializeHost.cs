@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Store.Management.Service.Domain.Interfaces.Database;
+using Store.Management.Service.Infrastructure.Repositories;
 
 namespace Store.Management.Service.Infrastructure
 {
@@ -14,6 +16,8 @@ namespace Store.Management.Service.Infrastructure
             {
                 options.UseSqlServer(configuration.GetConnectionString("RetailStoreDatabase"));
             });
+
+            services.AddScoped<IStoreRoomInventoryRepository, StoreRoomInventoryRepository>();
 
             return services;
         }

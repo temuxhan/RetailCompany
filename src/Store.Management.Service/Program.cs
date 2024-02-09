@@ -1,8 +1,6 @@
 using Serilog;
 using Store.Management.Service.Application.Behaviors;
-using Store.Management.Service.Domain.Interfaces.Database;
 using Store.Management.Service.Infrastructure;
-using Store.Management.Service.Infrastructure.Repositories;
 using System.Reflection;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -34,8 +32,6 @@ void ConfigureServices(IConfiguration configuration, IServiceCollection services
     builder.Services.AddSwaggerGen();
     builder.Services.AddInfrastructure(configuration);
     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-    builder.Services.AddScoped<IStoreRoomInventoryRepository, StoreRoomInventoryRepository>();
 }
 
 
